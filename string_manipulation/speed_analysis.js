@@ -24,6 +24,8 @@ function endTest(){
         return word !== ''; // elimina cualquier entrada vacía que pueda haber resultado de espacios múltiples entre palabras.
     }).length;
 
+    var totalCharacters = userTypedText.length
+
     var wpm = 0;
     
     //Comprueba si timeElapsed es verdadero (es decir, no es cero) y si typedWords no es un número (!isNaN(typedWords)).
@@ -33,6 +35,7 @@ function endTest(){
 
     var outputDiv = document.getElementById('output');
     outputDiv.innerHTML = '<h2>Typing test result:</h2>' +
+    '<p>Total Length: ' + totalCharacters + '</p>' +
     '<p>Words Typed: ' + typedWords + '</p>' + 
     '<p>Time Elapsed: ' + timeElapsed.toFixed(2) + ' seconds </p>'+ //El tiempo total que tomó el test, formateado a dos decimales usando toFixed(2).
     '<p>Words per minute (WPM): ' + wpm + '</p>';
