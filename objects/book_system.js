@@ -40,3 +40,11 @@ function ClearInputs() {
     document.getElementById('bookDescription').value = '';
     document.getElementById('pagesNumber').value = '';
 }
+
+function deleteBook(index){
+    books.splice(index,1);
+    // array.splice(start, deleteCount);
+    // start: Es el índice desde el cual quieres empezar a eliminar elementos.
+    // deleteCount: Es el número de elementos que quieres eliminar a partir de ese índice.
+    showBooks();
+}
