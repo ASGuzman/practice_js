@@ -1,12 +1,11 @@
+import { apiKey, apiUrl } from './config.js';
+
 function showweatherDetails(event) {
-    event.preventDefault(); // Evita que el formulario se envíe de manera predeterminada
-
-    // Obtén el valor ingresado en el campo de texto para la ciudad
+    event.preventDefault();
     const city = document.getElementById("city").value;
-    const apiKey = "076afc23455ea3d0fcd7fc74be9dfe86";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const fullApiUrl = `${apiUrl}?q=${city}&appid=${apiKey}&units=metric`;
 
-    fetch(apiUrl)
+    fetch(fullApiUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -29,3 +28,4 @@ function showweatherDetails(event) {
 }
 
 document.getElementById("weatherForm").addEventListener("submit", showweatherDetails);
+
